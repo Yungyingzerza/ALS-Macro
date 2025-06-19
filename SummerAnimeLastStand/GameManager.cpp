@@ -435,23 +435,6 @@ void GameManager::keyTrack() {
 
             Sleep(200);
         }
-
-        //handle pause
-        bool wasPressed = false;
-        if ((GetAsyncKeyState('P') & 0x8000) && !wasPressed) {
-            pause.store(!pause.load());  // toggle pause
-            std::cout << (pause ? "[Paused]\n" : "[Resumed]\n");
-             wasPressed = true;
-        }else if (!(GetAsyncKeyState('P') & 0x8000)) {
-            wasPressed = false; // reset when key released
-        }
-
-        if (GetAsyncKeyState('Z') & 0x8000) {
-            running.store(false);
-        }
-        
-        Sleep(50);
-
     }
 }
 
